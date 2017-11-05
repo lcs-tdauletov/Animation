@@ -19,7 +19,7 @@ class Sketch : NSObject {
         canvas = Canvas(width: 500, height: 500)
         
         // Set starting position
-        x = 250
+        x = random(from: 0, toButNotIncluding: 501)
         
         // Set the change value
         dx = 2
@@ -53,4 +53,5 @@ class Sketch : NSObject {
     }
     
 }
+
 
