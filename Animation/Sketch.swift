@@ -41,7 +41,7 @@ class Sketch : NSObject {
         
        // canvas.drawRectangle(bottomLeftX: 0, bottomLeftY: 0, width: 500, height: 500)
         
-        canvas.fillColor = Color.black
+        
         
         xbig += dxbig
         
@@ -76,13 +76,13 @@ class Sketch : NSObject {
         }
         
         canvas.drawShapesWithFill = false
-        canvas.drawEllipse(centreX: xbig, centreY: 250, width: 200, height: 200)
-        canvas.drawEllipse(centreX: xbig, centreY: 250, width: 1, height: 1)
+        //canvas.drawEllipse(centreX: xbig, centreY: 250, width: 200, height: 200)
+        //canvas.drawEllipse(centreX: xbig, centreY: 250, width: 1, height: 1)
         
         
         
-        canvas.drawEllipse(centreX: xsmall, centreY: ysmall, width: 50, height: 50)
-        canvas.drawEllipse(centreX: xsmall, centreY: ysmall, width: 1, height: 1)
+        //canvas.drawEllipse(centreX: xsmall, centreY: ysmall, width: 50, height: 50)
+        //canvas.drawEllipse(centreX: xsmall, centreY: ysmall, width: 1, height: 1)
         
         if sqrt(pow(Double(xbig - xsmall), 2) + pow(Double(250 - ysmall), 2)) < 125 {
             canvas.lineColor = Color.red
