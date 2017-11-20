@@ -1,5 +1,6 @@
 import Foundation
 
+
 class Sketch : NSObject {
     
     // NOTE: Every sketch must contain an object of type Canvas named 'canvas'
@@ -7,7 +8,11 @@ class Sketch : NSObject {
     let canvas : Canvas
     
     // Position of circle
-    var x : Int
+    var x : Double
+    var y : Double
+    
+    var direction: Bool = true
+    var color: Color = .black
     
     // This function runs once
     override init() {
@@ -16,19 +21,28 @@ class Sketch : NSObject {
         canvas = Canvas(width: 500, height: 500)
         
         // Set starting position
-        x = 250
+        x = 0
+        y = sin(x) * 100 + Double(canvas.height / 2)
+        
         
     }
     
     // Runs in a loop, forever, to create the animated effect
     func draw() {
+        if x > Double(canvas.width) || x < 0 {
+            direction = !direction
         
-        // Change position
-        x += 1
+        if direction {
+            x += 1
+        } else {
+            x -= 1
+        }
+        y = sin(x / 20) * 70 + Double(canvas.height / 2)
         
-        // Draw an ellipse in the middle of the canvas
-        canvas.drawEllipse(centreX: x, centreY: 250, width: 50, height: 50)
+        
+        canvas.fillColor = color
+        canvas.drawEllipse(centreX: Int(x), centreY: Int(y), width: 20, height: 20)
         
     }
-    
+}
 }
