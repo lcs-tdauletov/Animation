@@ -11,9 +11,6 @@ class Sketch : NSObject {
     var x : Double
     var y : Double
     
-    var direction: Bool = true
-    var color: Color = .black
-    
     // This function runs once
     override init() {
         
@@ -22,27 +19,13 @@ class Sketch : NSObject {
         
         // Set starting position
         x = 0
-        y = sin(x) * 100 + Double(canvas.height / 2)
-        
+        y = sin(x/20) * 40
         
     }
     
-    // Runs in a loop, forever, to create the animated effect
     func draw() {
-        if x > Double(canvas.width) || x < 0 {
-            direction = !direction
         
-        if direction {
-            x += 1
-        } else {
-            x -= 1
-        }
-        y = sin(x / 20) * 70 + Double(canvas.height / 2)
-        
-        
-        canvas.fillColor = color
-        canvas.drawEllipse(centreX: Int(x), centreY: Int(y), width: 20, height: 20)
+        canvas.drawEllipse(centreX: Int(x), centreY: y, width: 1, height: 1)
         
     }
-}
 }
