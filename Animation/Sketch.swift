@@ -33,14 +33,14 @@ class Sketch : NSObject {
         }
         y = Int(sin(Double(x) / 20) * 40) + canvas.height / 2
         
-        // Draw an ellipse in the middle of the canvas
+    
         canvas.drawEllipse(centreX: x, centreY: y, width: 10, height: 10)
-        
         if x > canvas.width || x < 0 {
             direction = !direction
             
             canvas.fillColor = Color(hue: random(from: 0, toButNotIncluding: 361), saturation: 100, brightness: 100, alpha: 100)
-        }
     }
     
+    }
+
 }
