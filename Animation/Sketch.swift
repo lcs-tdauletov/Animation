@@ -9,6 +9,8 @@ class Sketch : NSObject {
     // Position of circle
     var x : Int
     var y : Double
+    let waveHeight: Int = 200
+    let numberOfWaves: Int = 100
     
     // This function runs once
     override init() {
@@ -18,23 +20,23 @@ class Sketch : NSObject {
         
         // Set starting position
         x = 0
-        y = 10
+        y = Double(canvas.height / 2)
     }
     
     // Runs in a loop, forever, to create the animated effect
     func draw() {
-        
-        // Change position
         x += 1
         
-        y = sin(Double(x/20)) * 40
-        // Draw an ellipse in the middle of the canvas
-        canvas.drawEllipse(centreX: x, centreY: Int(y), width: 10, height: 10)
+        let yOfTopWave = Double(canvas.height / 2 - waveHeight / 2)
         
-        
-        for n in stride(from: 10 , to : 500 , by: 100){
+        for n in 0..<numberOfWaves{
+            y = sin(Double(x)/20) * 40 + yOfTopWave + Double(waveHeight / numberOfWaves * n)
             
+            canvas.fillColor = Color(hue: 360 / numberOfWaves * n, saturation: 100, brightness: 100, alpha: 100)
+            canvas.drawEllipse(centreX: x, centreY: Int(y), width: 10, height: 10)
         }
+        
+        // Draw an ellipse in the middle of the canvas
     }
     
 }

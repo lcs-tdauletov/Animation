@@ -32,6 +32,7 @@ class CanvasLiveViewableViewController: NSViewController {
         var imageRect : NSRect = NSMakeRect(0, 0, CGFloat(canvas.width), CGFloat(canvas.height))
         self.view.layer!.contents = canvas.imageView.image?.cgImage(forProposedRect: &imageRect, context: NSGraphicsContext.current, hints: nil)
         
+        
     }
     
 }
